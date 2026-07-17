@@ -1,0 +1,24 @@
+{
+  "id": "conv-1784275616281-b8x07qtsn",
+  "providerId": "claude",
+  "title": "Initialize knowledge base using article methodo...",
+  "titleGenerationStatus": "success",
+  "createdAt": 1784275616281,
+  "updatedAt": 1784276873563,
+  "lastResponseAt": 1784276799291,
+  "sessionId": "f8f81e66-25a1-4f59-9869-40ab76ec507a",
+  "selectedModel": "haiku",
+  "providerState": {
+    "providerSessionId": "f8f81e66-25a1-4f59-9869-40ab76ec507a"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 344,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 51072,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 51416,
+    "percentage": 26
+  }
+}

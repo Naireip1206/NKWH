@@ -1,0 +1,25 @@
+{
+  "id": "conv-1784276916141-soolmy55v",
+  "providerId": "claude",
+  "title": "Correct and expand writing into knowledge base",
+  "titleGenerationStatus": "success",
+  "createdAt": 1784276916141,
+  "updatedAt": 1784277079867,
+  "lastResponseAt": 1784277079867,
+  "sessionId": "b176df5d-fd70-4450-8440-bbb37b8f7c7c",
+  "selectedModel": "haiku",
+  "providerState": {
+    "providerSessionId": "b176df5d-fd70-4450-8440-bbb37b8f7c7c"
+  },
+  "currentNote": "原始资料/MC服务器搭建的整体思路.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 82,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 46848,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 46930,
+    "percentage": 23
+  }
+}

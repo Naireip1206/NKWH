@@ -1,0 +1,338 @@
+{
+  "id": "conv-1784282253557-4ynowari2",
+  "providerId": "claude",
+  "title": "Organize text into knowledge base",
+  "titleGenerationStatus": "success",
+  "createdAt": 1784282253557,
+  "updatedAt": 1784282630477,
+  "lastResponseAt": 1784282630477,
+  "sessionId": "44e6ee48-adeb-4aaa-bafe-2aeae7a23774",
+  "selectedModel": "haiku",
+  "providerState": {
+    "providerSessionId": "44e6ee48-adeb-4aaa-bafe-2aeae7a23774",
+    "subagentData": {
+      "call_00_xS70tiuqNATLz1oSXC0g8884": {
+        "id": "call_00_xS70tiuqNATLz1oSXC0g8884",
+        "description": "Explore vault structure",
+        "prompt": "Explore the vault structure at D:\\OSWarehouse\\MCserver. I need to understand:\n1. The top-level folder structure\n2. Is there a knowledge base / 知识库 section? What folders exist under it?\n3. What's in the \"原始资料\" (raw materials) folder structure?\n4. Are there any existing notes about servers, Minecraft, or related topics?\n5. What tags or organizational patterns are used?\n\nBe very thorough - check multiple directories and naming conventions.",
+        "mode": "async",
+        "isExpanded": false,
+        "status": "completed",
+        "toolCalls": [
+          {
+            "id": "call_00_1CkfU1ZkAuYz4dKbMPqq0613",
+            "name": "Bash",
+            "input": {
+              "command": "ls -la \"D:\\OSWarehouse\\MCserver\"",
+              "description": "List top-level files and folders"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "total 29\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 16:27 .\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 15:39 ..\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 15:55 .claude\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 16:03 .claudian\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 15:55 .obsidian\n-rw-r--r-- 1 Naireip 197121 1653 Jul 17 16:08 llm-wiki.md\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 16:29 原始资料\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 16:08 方法论\n-rw-r--r-- 1 Naireip 197121   40 Jul 17 16:11 未命名.base\n-rw-r--r-- 1 Naireip 197121 6006 Jul 17 16:07 模式文档.md\ndrwxr-xr-x 1 Naireip 197121    0 Jul 17 16:31 知识库"
+          },
+          {
+            "id": "call_01_yE7nycYBLyyaARs6pLiB4994",
+            "name": "Bash",
+            "input": {
+              "command": "find \"D:\\OSWarehouse\\MCserver\" -maxdepth 1 -type d | sort",
+              "description": "List all top-level directories"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "D:\\OSWarehouse\\MCserver\nD:\\OSWarehouse\\MCserver/.claude\nD:\\OSWarehouse\\MCserver/.claudian\nD:\\OSWarehouse\\MCserver/.obsidian\nD:\\OSWarehouse\\MCserver/原始资料\nD:\\OSWarehouse\\MCserver/方法论\nD:\\OSWarehouse\\MCserver/知识库"
+          },
+          {
+            "id": "call_02_rA6XnQFLPBcqK20MhCJN2050",
+            "name": "Glob",
+            "input": {
+              "pattern": "*",
+              "path": "D:\\OSWarehouse\\MCserver"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": ".obsidian\\core-plugins.json\n.obsidian\\app.json\n.obsidian\\appearance.json\n.obsidian\\plugins\\realclaudian\\manifest.json\n.obsidian\\plugins\\realclaudian\\main.js\n.obsidian\\plugins\\realclaudian\\styles.css\n.claudian\\claudian-settings.json\n.claudian\\sessions\\conv-1784275010751-td5soyji1.meta.json\n模式文档.md\n知识库\\来源\\LLM Wiki 方法论摘要.md\n原始资料\\来源\\LLM Wiki 方法论文档.md\n原始资料\\README.md\nllm-wiki.md\n知识库\\实体\\README.md\n知识库\\概念\\README.md\n知识库\\来源\\README.md\n知识库\\专题\\README.md\n知识库\\比较\\README.md\n方法论\\方法论.md\n.obsidian\\graph.json\n未命名.base\n.obsidian\\plugins\\obsidian-git\\manifest.json\n.obsidian\\plugins\\obsidian-git\\main.js\n.obsidian\\plugins\\obsidian-git\\styles.css\n.obsidian\\plugins\\obsidian-git\\obsidian_askpass.sh\n.obsidian\\community-plugins.json\n.claudian\\sessions\\conv-1784275616281-b8x07qtsn.meta.json\n原始资料\\MC服务器搭建的整体思路.md\n知识库\\来源\\MC服务器搭建思路摘要.md\n知识库\\概念\\MC服务器.md\n知识库\\概念\\服务器性能优化.md\n知识库\\专题\\MC服务器搭建指南.md\n知识库\\索引.md\n知识库\\日志.md\n知识库\\概览.md\n.claudian\\sessions\\conv-1784276916141-soolmy55v.meta.json\n.obsidian\\workspace.json\n原始资料\\资产\\服务端的相关经验.md\n.obsidian\\plugins\\realclaudian\\data.json\n.claudian\\sessions\\conv-1784282253557-4ynowari2.meta.json"
+          },
+          {
+            "id": "call_00_2FCF0QIhzz4nHR4VMrI41499",
+            "name": "Bash",
+            "input": {
+              "command": "find \"D:\\OSWarehouse\\MCserver\" -type f | sort",
+              "description": "Recursively list all files in the vault"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "D:\\OSWarehouse\\MCserver/.claudian/claudian-settings.json\nD:\\OSWarehouse\\MCserver/.claudian/sessions/conv-1784275010751-td5soyji1.meta.json\nD:\\OSWarehouse\\MCserver/.claudian/sessions/conv-1784275616281-b8x07qtsn.meta.json\nD:\\OSWarehouse\\MCserver/.claudian/sessions/conv-1784276916141-soolmy55v.meta.json\nD:\\OSWarehouse\\MCserver/.claudian/sessions/conv-1784282253557-4ynowari2.meta.json\nD:\\OSWarehouse\\MCserver/.obsidian/app.json\nD:\\OSWarehouse\\MCserver/.obsidian/appearance.json\nD:\\OSWarehouse\\MCserver/.obsidian/community-plugins.json\nD:\\OSWarehouse\\MCserver/.obsidian/core-plugins.json\nD:\\OSWarehouse\\MCserver/.obsidian/graph.json\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/obsidian-git/main.js\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/obsidian-git/manifest.json\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/obsidian-git/obsidian_askpass.sh\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/obsidian-git/styles.css\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/realclaudian/data.json\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/realclaudian/main.js\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/realclaudian/manifest.json\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/realclaudian/styles.css\nD:\\OSWarehouse\\MCserver/.obsidian/workspace.json\nD:\\OSWarehouse\\MCserver/llm-wiki.md\nD:\\OSWarehouse\\MCserver/原始资料/MC服务器搭建的整体思路.md\nD:\\OSWarehouse\\MCserver/原始资料/README.md\nD:\\OSWarehouse\\MCserver/原始资料/来源/LLM Wiki 方法论文档.md\nD:\\OSWarehouse\\MCserver/原始资料/资产/服务端的相关经验.md\nD:\\OSWarehouse\\MCserver/方法论/方法论.md\nD:\\OSWarehouse\\MCserver/未命名.base\nD:\\OSWarehouse\\MCserver/模式文档.md\nD:\\OSWarehouse\\MCserver/知识库/专题/MC服务器搭建指南.md\nD:\\OSWarehouse\\MCserver/知识库/专题/README.md\nD:\\OSWarehouse\\MCserver/知识库/实体/README.md\nD:\\OSWarehouse\\MCserver/知识库/日志.md\nD:\\OSWarehouse\\MCserver/知识库/来源/LLM Wiki 方法论摘要.md\nD:\\OSWarehouse\\MCserver/知识库/来源/MC服务器搭建思路摘要.md\nD:\\OSWarehouse\\MCserver/知识库/来源/README.md\nD:\\OSWarehouse\\MCserver/知识库/概念/MC服务器.md\nD:\\OSWarehouse\\MCserver/知识库/概念/README.md\nD:\\OSWarehouse\\MCserver/知识库/概念/服务器性能优化.md\nD:\\OSWarehouse\\MCserver/知识库/概览.md\nD:\\OSWarehouse\\MCserver/知识库/比较/README.md\nD:\\OSWarehouse\\MCserver/知识库/索引.md"
+          },
+          {
+            "id": "call_01_jFHlzO3LfP5J2AX4F2Ct1585",
+            "name": "Bash",
+            "input": {
+              "command": "find \"D:\\OSWarehouse\\MCserver\" -type d | sort",
+              "description": "Show full directory tree"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "D:\\OSWarehouse\\MCserver\nD:\\OSWarehouse\\MCserver/.claude\nD:\\OSWarehouse\\MCserver/.claude/agents\nD:\\OSWarehouse\\MCserver/.claude/commands\nD:\\OSWarehouse\\MCserver/.claude/skills\nD:\\OSWarehouse\\MCserver/.claudian\nD:\\OSWarehouse\\MCserver/.claudian/sessions\nD:\\OSWarehouse\\MCserver/.obsidian\nD:\\OSWarehouse\\MCserver/.obsidian/plugins\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/obsidian-git\nD:\\OSWarehouse\\MCserver/.obsidian/plugins/realclaudian\nD:\\OSWarehouse\\MCserver/原始资料\nD:\\OSWarehouse\\MCserver/原始资料/来源\nD:\\OSWarehouse\\MCserver/原始资料/资产\nD:\\OSWarehouse\\MCserver/方法论\nD:\\OSWarehouse\\MCserver/知识库\nD:\\OSWarehouse\\MCserver/知识库/专题\nD:\\OSWarehouse\\MCserver/知识库/实体\nD:\\OSWarehouse\\MCserver/知识库/来源\nD:\\OSWarehouse\\MCserver/知识库/概念\nD:\\OSWarehouse\\MCserver/知识库/比较"
+          },
+          {
+            "id": "call_02_rI1C5jvEhFnEpucs3iOU0191",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\概览.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: 知识库概览\n3\t标签: [概览, 元]\n4\t创建日期: 2026-07-17\n5\t类型: 专题\n6\t状态: 活跃\n7\t---\n8\t\n9\t# 知识库概览\n10\t\n11\t> 本页面提供知识库的全局综合论述，随知识积累持续演化。\n12\t\n13\t## 关于本知识库\n14\t\n15\t本知识库遵循 **LLM Wiki** 方法论（[[知识库/来源/LLM Wiki 方法论摘要]]），由 LLM（Claudian）增量式构建和维护。核心理念是：知识被编译一次后持续保持更新，而非在每次查询时重新推导。\n16\t\n17\t### 当前状态\n18\t\n19\t- **创建日期**: 2026-07-17\n20\t- **已处理来源**: 2 篇\n21\t- **知识库页面**: 扩展中（MC 服务器领域专精方向已确立）\n22\t- **核心领域**: Minecraft 服务器运维（技术指南）、通用 LLM Wiki 知识管理\n23\t\n24\t### 知识库原则\n25\t\n26\t1. **持久积累** — 每次摄取的见解和每次查询的发现都存入知识库，不断叠加\n27\t2. **交叉链接** — 页面之间通过 `[[内部链接]]` 建立丰富的关联网络\n28\t3. **LLM 维护** — LLM 负责所有的编录、交叉引用和一致性维护\n29\t4. **用户指导** — 用户负责策展来源、引导分析、提出好问题\n30\t\n31\t### 核心文件\n32\t\n33\t| 文件 | 用途 |\n34\t|------|------|\n35\t| [[模式文档.md]] | 知识库架构手册 — 告诉 LLM 如何维护 |\n36\t| [[知识库/索引.md]] | 内容目录 — 搜索和导航 |\n37\t| [[知识库/日志.md]] | 操作记录 — 时间线追踪 |\n38\t\n39\t### 最新动态\n40\t\n41\t📌 **2026-07-17** — 摄入了 [[原始资料/MC服务器搭建的整体思路.md]]，创建了 [[知识库/来源/MC服务器搭建思路摘要]]、[[知识库/概念/MC服务器]]、[[知识库/概念/服务器性能优化]]、[[知识库/专题/MC服务器搭建指南]]。\n42\t\n43\t### 下一步方向\n44\t\n45\t- 📥 **添加来源** — 放入更多 MC 服务器相关原始资料（具体云服务商选择、Docker 部署方案等）\n46\t- 🔍 **提出问题** — 让 LLM 综合已有知识回答\n47\t- 🧹 **健康检查** — 让 LLM 审查知识库并提出改进建议\n48\t- 🗂️ **定制结构** — 根据你的领域调整目录和分类\n49\t"
+          },
+          {
+            "id": "call_03_t3k31H4MGGQGst7xV8Kg1509",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\索引.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 知识库索引\n2\t\n3\t> 本文件是知识库的内容目录，按类别组织。每次摄取新来源后由 LLM 更新。\n4\t\n5\t---\n6\t\n7\t## 概览\n8\t\n9\t| 页面 | 摘要 | 状态 |\n10\t|------|------|------|\n11\t| [[知识库/概览.md]] | 知识库全局概览与综合论述 | ✅ |\n12\t\n13\t---\n14\t\n15\t## 原始来源（已归档）\n16\t\n17\t| 页面 | 摘要 | 已处理? |\n18\t|------|------|---------|\n19\t| [[原始资料/来源/LLM Wiki 方法论文档]] | LLM Wiki 方法论原文 — 本知识库的奠基性文档 | ✅ |\n20\t| [[原始资料/MC服务器搭建的整体思路]] | MC Java Edition 服务器搭建综合指南（硬件→环境→启动→运维） | ✅ |\n21\t\n22\t---\n23\t\n24\t## 实体\n25\t\n26\t> 人物、组织、项目、产品等实体页面\n27\t\n28\t*暂无内容 — 添加来源后将在此列出。*\n29\t\n30\t---\n31\t\n32\t## 概念\n33\t\n34\t> 理论、方法、术语、框架等概念页面\n35\t\n36\t| 页面 | 摘要 | 状态 |\n37\t|------|------|------|\n38\t| [[知识库/概念/MC服务器]] | MC 服务器定义、核心机制（Tick/Chunk/TPS）与关键术语 | ✅ |\n39\t| [[知识库/概念/服务器性能优化]] | JVM 参数、服务端核心、区块管理、插件优化等全方位性能调优 | ✅ |\n40\t\n41\t---\n42\t\n43\t## 来源摘要\n44\t\n45\t> 每篇摄入的文档摘要\n46\t\n47\t| 页面 | 来源 | 日期 |\n48\t|------|------|------|\n49\t| [[知识库/来源/LLM Wiki 方法论摘要]] | LLM Wiki 原文 | 2026-07-17 |\n50\t| [[知识库/来源/MC服务器搭建思路摘要]] | MC 服务器搭建指南 | 2026-07-17 |\n51\t\n52\t---\n53\t\n54\t## 专题研究\n55\t\n56\t> 深度研究话题\n57\t\n58\t| 页面 | 摘要 | 状态 |\n59\t|------|------|------|\n60\t| [[知识库/专题/MC服务器搭建指南]] | MC 服务器综合搭建专题，含决策树、配置清单、架构模式 | ✅ |\n61\t\n62\t---\n63\t\n64\t## 对比分析\n65\t\n66\t> 多维度对比页\n67\t\n68\t*暂无内容 — 随着查询和探索将在此列出。*\n69\t\n70\t---\n71\t\n72\t## 引导文件\n73\t\n74\t| 页面 | 用途 |\n75\t|------|------|\n76\t| [[知识库/实体/README.md]] | 实体页面引导 |\n77\t| [[知识库/概念/README.md]] | 概念页面引导 |\n78\t| [[知识库/来源/README.md]] | 来源摘要引导 |\n79\t| [[知识库/专题/README.md]] | 专题研究引导 |\n80\t| [[知识库/比较/README.md]] | 对比分析引导 |\n81\t\n82\t## 统计数据\n83\t\n84\t- 知识库创建日期: 2026-07-17\n85\t- 当前页面总数: 16（含引导页和入口页）\n86\t- 已处理来源: 2\n87\t"
+          },
+          {
+            "id": "call_04_br7lb6yon7xS4c4FKPGY2911",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\原始资料\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 原始资料目录\n2\t\n3\t> **不可变来源集合** — LLM 从中读取但永不修改。这是知识库的事实源。\n4\t\n5\t## 使用方式\n6\t\n7\t1. 将新来源（文章、论文、笔记、报告等）放入此目录\n8\t2. 告知 LLM 摄取新来源\n9\t3. LLM 将读取、总结、并整合到知识库中\n10\t\n11\t## 目录结构\n12\t\n13\t```\n14\t原始资料/\n15\t├── README.md          # 本文件\n16\t├── 资产/              # 图片、附件等媒体文件\n17\t└── 来源/              # 已归档的原始文档\n18\t```\n19\t\n20\t## 导入方法\n21\t\n22\t- **Obsidian Web Clipper**: 浏览器扩展，一键将网页转为 Markdown 存入此目录\n23\t- **手动添加**: 直接复制粘贴或拖入文件\n24\t- **批量导入**: 可批量放入多个文件后让 LLM 依次处理\n25\t\n26\t## 当前来源\n27\t\n28\t| 文件 | 来源类型 | 状态 |\n29\t|------|---------|------|\n30\t| [[原始资料/来源/LLM Wiki 方法论文档]] | 方法论文章 | ✅ 已摄入 |\n31\t"
+          },
+          {
+            "id": "call_05_mB7uPguNJDDJUxZpL2y05304",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\模式文档.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 模式文档 — LLM Wiki 知识库架构\n2\t\n3\t> 本文档定义了本知识库的结构、约定和工作流程。它是 LLM 维护知识库的核心操作手册。\n4\t\n5\t## 概述\n6\t\n7\t本知识库遵循 **LLM Wiki** 方法论文档（见 [[原始资料/来源/LLM Wiki 方法论文档]]）的核心理念：由 LLM 增量式构建并维护一个持久的、结构化的、相互链接的维基知识库。知识一旦被编译就保持更新，而不是在每次查询时重新推导。\n8\t\n9\t### 三层架构\n10\t\n11\t1. **原始资料层** (`原始资料/`) — 不可变的来源文档集合。LLM 从中读取但永不修改。这是事实源。\n12\t2. **知识库层** (`知识库/`) — LLM 生成和维护的 Markdown 文件。LLM 完全拥有这一层：创建页面、在新来源到达时更新、维护交叉引用、保持一致性。\n13\t3. **模式文档**（本文档）— 定义知识库结构、约定和工作流程。LLM 和用户共同演化它。\n14\t\n15\t---\n16\t\n17\t## 目录结构\n18\t\n19\t```\n20\t原始资料/                    # 不可变的原始来源\n21\t├── 资产/                   # 图片等附件资源\n22\t├── 来源/                   # 已归档的来源文档（可保留原文件链接）\n23\t└── README.md              # 原始资料索引\n24\t\n25\t知识库/                     # LLM 生成和维护的 Wiki\n26\t├── 索引.md                # ★ 内容目录（索引）\n27\t├── 日志.md                # ★ 操作日志（按时间顺序）\n28\t├── 概览.md                # 全局概览与综合论述\n29\t├── 实体/                  # 实体页面（人物、组织、项目等）\n30\t├── 概念/                  # 概念页面（理论、方法、术语等）\n31\t├── 来源/                  # 来源摘要页面\n32\t├── 专题/                  # 专题深度研究\n33\t└── 比较/                  # 对比分析页面\n34\t\n35\t模式文档.md                 # ★ 本文档 — 架构模式文档\n36\t```\n37\t\n38\t---\n39\t\n40\t## 页面约定\n41\t\n42\t### YAML Frontmatter\n43\t\n44\t每个知识库页面应包含 YAML 前置元数据：\n45\t\n46\t```yaml\n47\t---\n48\t标题: 页面标题\n49\t标签: [标签1, 标签2]\n50\t创建日期: 2026-07-17\n51\t来源数量: 0\n52\t相关实体: []\n53\t相关概念: []\n54\t类型: 实体 | 概念 | 来源摘要 | 比较 | 专题\n55\t状态: 活跃 | 待更新 | 待补充\n56\t---\n57\t```\n58\t\n59\t### 页面格式\n60\t\n61\t- 使用 `#` 一级标题作为页面标题\n62\t- 使用 `##` 和 `###` 组织层级\n63\t- 使用 `[[内部链接]]` 链接知识库中的其他页面\n64\t- 使用 `![[图片]]` 嵌入本地图片\n65\t- 使用 `> 引用` 标注引用\n66\t- 使用 `---` 分隔不同章节\n67\t\n68\t### 命名规范\n69\t\n70\t- 页面名称为中文，简明扼要\n71\t- 文件名与标题一致\n72\t- 避免过长的文件名\n73\t- 实体页面以实体名称命名\n74\t- 概念页面以概念名称命名\n75\t\n76\t---\n77\t\n78\t## 工作流程\n79\t\n80\t### 1. 摄取流程 (Ingest)\n81\t\n82\t当用户添加新来源时，LLM 应执行以下步骤：\n83\t\n84\t1. **读取来源** — 完整阅读原始资料\n85\t2. **讨论要点** — 与用户讨论关键收获和重点方向\n86\t3. **撰写来源摘要** — 在 `知识库/来源/` 下创建摘要页面\n87\t4. **更新索引** — 在 [[知识库/索引.md]] 中添加条目\n88\t5. **更新相关页面** — 更新涉及的所有实体、概念页面（可能跨 10-15 个页面）\n89\t6. **记录日志** — 在 [[知识库/日志.md]] 中追加条目\n90\t7. **检查一致性** — 标记与现有内容矛盾或互补之处\n91\t\n92\t一次处理一个来源，用户保持参与以指导重点方向。\n93\t\n94\t### 2. 查询流程 (Query)\n95\t\n96\t当用户提问时，LLM 应：\n97\t\n98\t1. **查阅索引** — 先读取 [[知识库/索引.md]] 定位相关页面\n99\t2. **深入阅读** — 读取找到的页面获取详细信息\n100\t3. **综合回答** — 整合多页面信息，给出带引用的回答\n101\t4. **归档价值回答** — 有价值的回答应作为新页面归档到知识库中\n102\t   - 对比分析 → `知识库/比较/`\n103\t   - 专题研究 → `知识库/专题/`\n104\t   - 新的联系和发现 → 相应概念或实体页面\n105\t\n106\t### 3. 维护流程 (Lint)\n107\t\n108\t定期健康检查，LLM 应检查：\n109\t\n110\t- **矛盾** — 页面之间的冲突声明\n111\t- **过时** — 已被新来源取代的旧主张\n112\t- **孤立页面** — 没有入站链接的页面\n113\t- **缺失页面** — 被频繁提及但尚无独立页面的重要概念\n114\t- **缺失引用** — 缺少的交叉引用\n115\t- **数据缺口** — 可通过网络搜索填充的信息空白\n116\t- **索引同步** — 索引是否与实际页面列表一致\n117\t\n118\t---\n119\t\n120\t## 索引与日志\n121\t\n122\t### 索引文件：[[知识库/索引.md]]\n123\t\n124\t内容导向的目录。每页一条，包含链接、一句话摘要和元数据。按类别组织（实体、概念、来源等）。每次摄取后更新。\n125\t\n126\t### 日志文件：[[知识库/日志.md]]\n127\t\n128\t时间顺序的记录。每次操作的追加记录。每条日志以统一前缀开头：\n129\t\n130\t```\n131\t## [2026-07-17] 摄取 | 文章标题\n132\t## [2026-07-17] 查询 | 用户问题简述\n133\t## [2026-07-17] 维护 | 健康检查\n134\t```\n135\t\n136\t方便使用 Unix 工具或搜索快速查看最近操作。\n137\t\n138\t---\n139\t\n140\t## 标签系统\n141\t\n142\t- `#实体` — 人物、组织、项目、产品\n143\t- `#概念` — 理论、方法、术语、框架\n144\t- `#来源` — 文章、书籍、论文、报告\n145\t- `#专题` — 研究话题、深度领域\n146\t- `#待更新` — 需要补充或修订的页面\n147\t- `#待探索` — 值得进一步研究的方向\n148\t\n149\t---\n150\t\n151\t## 工具与集成\n152\t\n153\t- **Obsidian** — 知识库的 IDE，用于浏览、链接和图谱视图\n154\t- **Obsidian Web Clipper** — 浏览器扩展，将网页转为 Markdown 存入原始资料\n155\t- **Dataview 插件** — 基于 YAML frontmatter 运行查询，生成动态表格和列表\n156\t- **Marp 插件** — 基于 Markdown 的幻灯片格式，用于知识展示\n157\t- **Git** — 版本历史、分支和协作（知识库就是 Markdown 的 Git 仓库）\n158\t\n159\t---\n160\t\n161\t## 演化原则\n162\t\n163\t- 本文档（模式文档）由用户和 LLM 共同演化\n164\t- 随着领域发展，持续优化目录结构、页面格式和工作流程\n165\t- 对当前工作流不适用的部分可以移除，需要的新部分可以添加\n166\t- 一切可选且模块化 — 选择有用的，忽略不需要的\n167\t"
+          },
+          {
+            "id": "call_00_Z8ajzgpkvWhAHW1rwlXu8373",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\日志.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 知识库操作日志\n2\t\n3\t> 按时间顺序记录所有操作：摄取（Ingest）、查询（Query）、维护（Lint）。\n4\t\n5\t---\n6\t\n7\t## [2026-07-17] 初始化 | LLM Wiki 知识库建立\n8\t\n9\t- **操作**: 根据 LLM Wiki 方法论初始化知识库\n10\t- **详情**: 创建了完整的三层架构（原始资料层、知识库层、模式层）\n11\t- **创建的文件**:\n12\t  - `模式文档.md` — 架构模式文档\n13\t  - `知识库/索引.md` — 内容目录\n14\t  - `知识库/日志.md` — 操作日志（本文）\n15\t  - `知识库/概览.md` — 全局概览\n16\t  - `知识库/来源/LLM Wiki 方法论摘要.md` — 来源摘要\n17\t  - `原始资料/来源/LLM Wiki 方法论文档.md` — 归档原文\n18\t- **状态**: ✅ 完成\n19\t\n20\t---\n21\t\n22\t## [2026-07-17] 初始化 | 创建子目录引导页\n23\t\n24\t- **操作**: 为知识库各子目录创建 README 引导文件\n25\t- **创建的文件**:\n26\t  - `知识库/实体/README.md` — 实体页面引导\n27\t  - `知识库/概念/README.md` — 概念页面引导\n28\t  - `知识库/来源/README.md` — 来源摘要引导\n29\t  - `知识库/专题/README.md` — 专题研究引导\n30\t  - `知识库/比较/README.md` — 对比分析引导\n31\t  - `方法论/方法论.md` — 更新为指向新结构的入口\n32\t- **更新**:\n33\t  - `llm-wiki.md` — 从原文更新为知识库入口页面\n34\t  - `知识库/索引.md` — 初始化索引条目\n35\t- **状态**: ✅ 完成\n36\t\n37\t---\n38\t\n39\t---\n40\t\n41\t## [2026-07-17] 摄取 | MC服务器搭建的整体思路\n42\t\n43\t- **操作**: 修正扩充原始资料，创建知识库页面\n44\t- **详情**: 对用户撰写的 MC 服务器搭建指南进行了全面的格式修正、内容扩充（硬件选型、环境部署、启动优化、网络配置、运维备份等），并将内容编译到知识库中\n45\t- **创建的文件**:\n46\t  - `知识库/来源/MC服务器搭建思路摘要.md` — 来源摘要\n47\t  - `知识库/概念/MC服务器.md` — MC 服务器概念页面\n48\t  - `知识库/概念/服务器性能优化.md` — 服务器性能优化概念页面\n49\t  - `知识库/专题/MC服务器搭建指南.md` — 综合搭建专题研究\n50\t- **修改的文件**:\n51\t  - `原始资料/MC服务器搭建的整体思路.md` — 大幅修正和扩充（原始内容从 ~19 行扩展为完整指南）\n52\t  - `知识库/索引.md` — 添加了所有新页面的索引条目\n53\t- **状态**: ✅ 完成\n54\t\n55\t---\n56\t\n57\t*更多操作记录将追加在此文件下方。*\n58\t"
+          },
+          {
+            "id": "call_01_S9uews0TgtS3bk4k184I6366",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\概念\\MC服务器.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: MC服务器\n3\t标签: [概念, Minecraft, 服务器, 游戏]\n4\t创建日期: 2026-07-17\n5\t来源数量: 1\n6\t相关实体: []\n7\t相关概念: [知识库/概念/服务器性能优化]\n8\t类型: 概念\n9\t状态: 活跃\n10\t---\n11\t\n12\t# MC 服务器\n13\t\n14\t## 定义\n15\t\n16\tMinecraft（MC）服务器是一个运行 Minecraft 服务端软件的持久化进程，允许多名玩家通过网络在同一世界中联机游玩。MC 服务器是 Minecraft 生态系统中的核心基础设施，从家庭小服到大型商业网络，覆盖各种规模。\n17\t\n18\t## 核心机制\n19\t\n20\t### 服务端架构\n21\t\n22\tMC Java Edition 的服务端采用 **Tick 驱动** 模型：\n23\t\n24\t- **固定速率**：每秒 20 次（20 TPS，Tick Per Second），每次 tick 处理物理、AI、红石、区块加载等逻辑\n25\t- **单线程主循环**：大部分核心逻辑在主线程上运行，因此单核性能至关重要\n26\t- **异步处理**：区块 IO、网络、部分计算在辅助线程上并行\n27\t\n28\t### 核心类型对比\n29\t\n30\tMC 服务端生态存在多种核心（Server Software），本质是对原版服务端的修改或重实现：\n31\t\n32\t| 维度 | Paper (优化) | Fabric (轻量 Mod) | Forge (重量 Mod) |\n33\t|------|-------------|-------------------|------------------|\n34\t| 架构 | 修改 Vanilla | 轻量钩子注入 | 大规模事件系统 |\n35\t| 启动速度 | 中等 | 快 | 慢 |\n36\t| 性能 | 最优 | 良好 | 较差 |\n37\t| Mod 兼容性 | 插件（API） | 少量 Mod | 大量 Mod |\n38\t| 适合场景 | 插件生存服 | 轻量/技术 Mod | 大型整合包 |\n39\t\n40\t### 关键术语\n41\t\n42\t- **TPS**：Tick Per Second，服务器每秒处理的游戏 tick 数。稳定 20 = 流畅，< 20 = 卡顿\n43\t- **MSPT**：Milliseconds Per Tick，每次 tick 的耗时。目标 < 50ms（50ms × 20 = 1000ms = 1s）\n44\t- **View Distance**：服务端向玩家发送的区块视距\n45\t- **Simulation Distance**：实体和红石等逻辑被计算的区块距离\n46\t- **Chunk**：区块，16×256×16 的世界单元，是 MC 世界存储和加载的基本单位\n47\t\n48\t## 搭建流程\n49\t\n50\t1. **选硬件** → 2. **装系统** → 3. **装 Java** → 4. **选核心** → 5. **配启动项** → 6. **配 server.properties** → 7. **开端口** → 8. **加插件/Mod** → 9. **启动并测试**\n51\t\n52\t详见 [[知识库/专题/MC服务器搭建指南]]。\n53\t\n54\t## 相关来源\n55\t\n56\t- [[知识库/来源/MC服务器搭建思路摘要]] — 来自用户撰写的综合性搭建指南\n57\t"
+          },
+          {
+            "id": "call_02_47uoITkZ70Yvc0xcNnJq5917",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\概念\\服务器性能优化.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: 服务器性能优化\n3\t标签: [概念, Minecraft, 性能优化, JVM]\n4\t创建日期: 2026-07-17\n5\t来源数量: 1\n6\t相关实体: []\n7\t相关概念: [知识库/概念/MC服务器]\n8\t类型: 概念\n9\t状态: 活跃\n10\t---\n11\t\n12\t# 服务器性能优化\n13\t\n14\t## 定义\n15\t\n16\tMC 服务器性能优化是指通过调整 JVM 参数、服务端配置、硬件选择和软件架构等手段，使 MC 服务器在保持稳定 20 TPS 的前提下，尽可能承载更多玩家和更复杂的游戏机制。\n17\t\n18\t## 优化维度\n19\t\n20\t### 1. JVM 参数优化（Aikar's Flags）\n21\t\n22\tMC 服务器的 Java 进程对垃圾回收（GC）非常敏感——GC 引发的 STW（Stop-The-World）暂停会直接体现为玩家感受到的卡顿。Aikar's Flags 是目前业界公认的最佳 JVM 参数集合：\n23\t\n24\t```\n25\t-Xms4G -Xmx8G -XX:+UseG1GC -XX:+ParallelRefProcEnabled\n26\t-XX:MaxGCPauseMillis=200 -XX:+DisableExplicitGC\n27\t-XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5\n28\t-XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90\n29\t-XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32\n30\t-XX:MaxTenuringThreshold=1 -XX:+PerfDisableSharedMem\n31\t```\n32\t\n33\t**核心思路**：\n34\t- G1GC 在延迟和时间确定性上优于默认的 Parallel GC\n35\t- `AlwaysPreTouch` 消除运行时的内存申请延迟\n36\t- `DisableExplicitGC` 防止插件误触发 Full GC\n37\t- `MaxTenuringThreshold=1` 减少晋升管理的开销\n38\t\n39\t### 2. 服务端核心选择\n40\t\n41\t| 核心 | 相对性能（以 Vanilla 为基线） | 说明 |\n42\t|------|------------------------------|------|\n43\t| Vanilla | 1.0x | 无任何优化 |\n44\t| Spigot | ~1.3x | 少量优化 |\n45\t| **Paper** | **~1.8x** | **显著优化，推荐首选** |\n46\t| Purpur | ~1.8x | 基于 Paper，更多可调配置 |\n47\t| Pufferfish | ~1.9x | 针对高实体密度优化 |\n48\t| Fabric + Lithium | ~1.6x | 优化 + Mod 兼容性 |\n49\t\n50\t### 3. 世界与区块管理\n51\t\n52\t- **预生成区块**：使用 Chunky 或类似工具在开服前生成足够大的区块区域，避免玩家探索时实时生成导致卡顿\n53\t- **降低视距**：`view-distance=6` / `simulation-distance=5` 是多数服务器的有效折中\n54\t- **实体数量控制**：过多的掉落物、村民、动物是常见的 TPS 杀手\n55\t- **红石机器限流**：高频红石机器（刷沙机、分类机等）是单线程性能的天敌\n56\t\n57\t### 4. 内存管理\n58\t\n59\t- **Xms = Xmx**：避免 GC 调整堆大小\n60\t- **不要过度分配**：内存过多反而导致 GC 暂停变长（更大的堆 = 更长的 GC 周期）\n61\t- **监控 Old Gen 使用率**：Old Gen 不断增长可能是内存泄漏的信号\n62\t\n63\t### 5. 插件与 Mod 层面的优化\n64\t\n65\t| 目标 | 推荐工具 |\n66\t|------|---------|\n67\t| 定时清理 | ClearLag（定期清理掉落物和实体） |\n68\t| 区块加载控制 | ChunkyBorder（限制世界边界） |\n69\t| 性能分析 | Spark（精确定位卡顿原因） |\n70\t| 光照优化 | Starlight / Phosphorus（Fabric） |\n71\t| 网络优化 | Krypton（Fabric） |\n72\t\n73\t## 性能诊断手段\n74\t\n75\t```bash\n76\t# 服务器内命令\n77\t/tps            # 查看当前 TPS（> 19 正常）\n78\t/mspt           # 查看每 tick 耗时（< 50 优秀）\n79\t/paper timings  # Paper 深度性能分析\n80\t/spark profiler # Spark 性能采样\n81\t\n82\t# 系统命令\n83\thtop            # CPU 和内存实时\n84\tiotop           # 磁盘 IO\n85\tjournalctl -u minecraft -f  # Systemd 日志\n86\t```\n87\t\n88\t## 与 MC 服务器的关系\n89\t\n90\t- [[知识库/概念/MC服务器]] — MC 服务器的基本概念\n91\t- [[知识库/专题/MC服务器搭建指南]] — 完整的搭建指南包含优化实践\n92\t\n93\t## 相关来源\n94\t\n95\t- [[知识库/来源/MC服务器搭建思路摘要]] — 搭建思路的来源摘要\n96\t- [[原始资料/MC服务器搭建的整体思路.md]] — 原始搭建指南\n97\t"
+          },
+          {
+            "id": "call_03_A8Va4tyCmbHGLqMx43VW2629",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\专题\\MC服务器搭建指南.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: MC服务器搭建指南\n3\t标签: [专题, Minecraft, 服务器, 运维]\n4\t创建日期: 2026-07-17\n5\t来源数量: 1\n6\t相关实体: []\n7\t相关概念: [知识库/概念/MC服务器, 知识库/概念/服务器性能优化]\n8\t类型: 专题\n9\t状态: 活跃\n10\t---\n11\t\n12\t# MC 服务器搭建指南\n13\t\n14\t> 本文是 MC 服务器搭建的综合专题研究，梳理了从零开始搭建一个可用的 Minecraft 服务器的完整知识体系。内容涵盖硬件选型、环境部署、性能优化、网络配置和日常运维。\n15\t\n16\t---\n17\t\n18\t## 一、搭建决策树\n19\t\n20\t搭建 MC 服务器需要根据目标场景来做决策，以下是快速决策流程：\n21\t\n22\t```\n23\t你想开什么样的服？\n24\t├── 📦 原版 + 插件生存服 → Paper / Purpur\n25\t│   ├── 1-10 人 → 低配物理机 / 轻量云服务器（4C8G）\n26\t│   ├── 10-30 人 → 中配物理机 / 云服务器（4C16G）\n27\t│   └── 30-100+ 人 → 高性能专用机（6C+ 高频、32G+）\n28\t├── 🔧 轻量 Mod 服 → Fabric\n29\t│   ├── 少量 Mod → 中等配置（4C12G）\n30\t│   └── 大量 Mod → 高配置（8C+、16G+）\n31\t├── ⚙️ 大型整合包 → Forge / NeoForge\n32\t│   └── ATM、GTNH 等 → 需要 8C+ 高频、16-32G 内存\n33\t├── 🌐 跨服网络 → Velocity 代理 + 多后端\n34\t│   └── 按子服独立扩缩容\n35\t└── 🤖 纯测试 / 局域网 → Vanilla / 任意核心\n36\t```\n37\t\n38\t---\n39\t\n40\t## 二、硬件选型详解\n41\t\n42\t### 核心公式\n43\t\n44\t```\n45\t可承载玩家数 ∝ CPU单核性能 × 内存容量 × 优化系数 / 玩家行为复杂度\n46\t```\n47\t\n48\t其中优化系数（按照经验值）：\n49\t- Vanilla = 1.0\n50\t- Paper = ~1.8（相同硬件可承载约 1.8 倍于 Vanilla 的玩家）\n51\t- Paper + 预生成 + JVM 优化 = ~2.5\n52\t\n53\t### 成本效益分析\n54\t\n55\t| 方案 | 月成本（估算） | 适合场景 | 维护难度 |\n56\t|------|--------------|---------|---------|\n57\t| 物理机自建 | 一次性 ~¥2000+ | 长期拥有，高自由度 | ⭐⭐⭐ |\n58\t| 轻量云服务器 | ¥50-150/月 | 小型生存服 | ⭐⭐ |\n59\t| ECS/CVM 按量 | ¥200-500/月 | 中型服，可弹性扩缩 | ⭐⭐ |\n60\t| 高性能云主机 | ¥500-2000+/月 | 大型公开服 | ⭐⭐ |\n61\t| 托管服（Minecraft Hosting） | ¥50-300/月 | 不想折腾 | ⭐ |\n62\t\n63\t### 网络要求\n64\t\n65\t| 玩家人数 | 上行带宽需求 |\n66\t|---------|------------|\n67\t| 1-10 人 | 5-10 Mbps |\n68\t| 10-30 人 | 10-30 Mbps |\n69\t| 30-50 人 | 30-50 Mbps |\n70\t| 50-100 人 | 50-100 Mbps |\n71\t\n72\t---\n73\t\n74\t## 三、环境部署速查\n75\t\n76\t### Java 安装对比\n77\t\n78\t| 发行版 | 包名 | 适用 |\n79\t|-------|------|------|\n80\t| OpenJDK | `openjdk-21-jre-headless` | Ubuntu/Debian 官方源 |\n81\t| Eclipse Temurin | `temurin-21-jdk` | 跨平台一致性高 |\n82\t| Amazon Corretto | `java-21-amazon-corretto` | AWS 环境集成好 |\n83\t| GraalVM | — | 实验性优化，不推荐生产 |\n84\t\n85\t### 服务端核心获取\n86\t\n87\t```bash\n88\t# Paper（推荐）\n89\twget https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/130/downloads/paper-1.21.1-130.jar -O server.jar\n90\t\n91\t# Fabric\n92\twget https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.15.11/0.11.2/server/jar -O server.jar\n93\t\n94\t# Forge（需先运行安装器）\n95\twget https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.0.37/forge-1.21.1-52.0.37-installer.jar\n96\tjava -jar forge-1.21.1-52.0.37-installer.jar --installServer\n97\t```\n98\t\n99\t---\n100\t\n101\t## 四、配置优化列表\n102\t\n103\t### 必做清单\n104\t\n105\t- [ ] 选择合适的服务端核心（推荐 Paper）\n106\t- [ ] 使用 Aikar's Flags 启动参数\n107\t- [ ] `view-distance` 设置为 6-8\n108\t- [ ] `simulation-distance` 设置为 5-6\n109\t- [ ] 预生成 5000-10000 区块半径的世界\n110\t- [ ] 配置定时自动备份\n111\t- [ ] 配置防火墙（仅开放必要端口）\n112\t- [ ] 设置白名单或正版验证\n113\t\n114\t### 推荐做\n115\t\n116\t- [ ] 安装性能分析工具（Spark）\n117\t- [ ] 配置每日重启（降低内存泄漏影响）\n118\t- [ ] 限制单个玩家可生成的实体数量\n119\t- [ ] 使用 ChunkyBorder 限制世界边界\n120\t- [ ] 设置红石 tick 速率限制\n121\t- [ ] 配置 Systemd 实现开机自启\n122\t\n123\t### 进阶\n124\t\n125\t- [ ] Docker 容器化 + docker-compose\n126\t- [ ] Git 管理配置文件\n127\t- [ ] CI/CD 自动部署\n128\t- [ ] Prometheus + Grafana 监控\n129\t- [ ] 地理 DNS 分流\n130\t- [ ] 多线 BGP 接入\n131\t\n132\t---\n133\t\n134\t## 五、常见架构模式\n135\t\n136\t### 单服务器（单体）\n137\t```\n138\t玩家 → 公网IP:端口 → MC服务端\n139\t```\n140\t最简单的架构，适合小型服。\n141\t\n142\t### 带代理的跨服\n143\t```\n144\t玩家 → TCPShield(防护) → Velocity(代理)\n145\t                              ├── 生存服 (hub1)\n146\t                              ├── 创造服 (hub2)\n147\t                              ├── 小游戏服 (hub3)\n148\t                              └── 后台管理服 (隐藏)\n149\t```\n150\t适合中型+服务器，各子服可独立重启。\n151\t\n152\t### Docker 化部署\n153\t```\n154\tdocker-compose.yml\n155\t├── velocity (代理)\n156\t├── lobby (大厅)\n157\t├── survival (生存)\n158\t├── creative (创造)\n159\t├── db (数据库 - LuckPerms/经济)\n160\t└── backup (定时备份容器)\n161\t```\n162\t适合需要快速部署和迁移的场景。\n163\t\n164\t---\n165\t\n166\t## 六、参考资源\n167\t\n168\t- [PaperMC Docs](https://docs.papermc.io) — Paper 官方文档，包含 Aikar's Flags 和优化指南\n169\t- [Minecraft Wiki](https://minecraft.wiki) — MC 官方 Wiki\n170\t- [Spark 性能分析](https://spark.lucko.me) — Spark 使用文档\n171\t- [Aikar's Flags 原帖](https://mcflags.emc.gs) — JVM 优化参数的原始讨论\n172\t- [PaperMC Discord](https://discord.gg/papermc) — Paper 社区\n173\t- [Minecraft 服务端软件列表](https://minecraft.wiki/w/Server_software) — 各家核心对比\n174\t\n175\t---\n176\t\n177\t## 相关页面\n178\t\n179\t- [[知识库/概念/MC服务器]] — MC 服务器基本概念\n180\t- [[知识库/概念/服务器性能优化]] — 性能优化方法\n181\t- [[知识库/来源/MC服务器搭建思路摘要]] — 来源摘要\n182\t- [[原始资料/MC服务器搭建的整体思路.md]] — 原始搭建指南\n183\t"
+          },
+          {
+            "id": "call_04_nxEgXT0TnOsFbkqOBubb1300",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\来源\\MC服务器搭建思路摘要.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: MC服务器搭建思路摘要\n3\t标签: [来源, Minecraft, 服务器]\n4\t创建日期: 2026-07-17\n5\t来源数量: 1\n6\t相关实体: []\n7\t相关概念: [知识库/概念/MC服务器, 知识库/概念/服务器性能优化]\n8\t类型: 来源摘要\n9\t状态: 活跃\n10\t---\n11\t\n12\t# MC服务器搭建思路摘要\n13\t\n14\t> 来源：[[原始资料/MC服务器搭建的整体思路.md]] — 用户撰写的一篇 MC 服务器搭建综合指南。\n15\t\n16\t## 概述\n17\t\n18\t本文是关于搭建 Minecraft Java Edition 服务器的综合指南，覆盖了从硬件选型到运维维护的全流程。核心观点是：AI 工具虽然降低了搭建门槛，但理解底层原理才能更好地运营和维护服务器。\n19\t\n20\t## 关键要点\n21\t\n22\t### 硬件选型\n23\t- MC 服务器的瓶颈主要在 **CPU 单核性能** 和 **内存容量**\n24\t- CPU 单核性能决定玩家承载能力，核心数的优先级较低\n25\t- 内存需求随玩家人数和 Mod/插件数量线性增长\n26\t- NVMe SSD 对区块加载速度有明显提升\n27\t\n28\t### 环境准备\n29\t- Java 版本必须与 MC 版本严格对应（Java 8 / 17 / 21）\n30\t- Linux（Ubuntu/Debian）是推荐的服务器操作系统\n31\t- 不同服务端核心（Paper、Fabric、Forge）适用于不同场景\n32\t\n33\t### 启动优化\n34\t- Aikar's Flags 是业界公认的 JVM 优化参数集合\n35\t- G1GC 是 MC 服务器最适合的垃圾回收器\n36\t- 生产环境推荐使用 Systemd 管理服务器进程\n37\t\n38\t### 网络与安全\n39\t- 家庭自建服需要配置端口转发\n40\t- 推荐使用 TCPShield 或 Cloudflare 进行 DDoS 防护\n41\t- 大型服务器可采用反代 → 代理 → 后端的分层架构\n42\t\n43\t### 运维\n44\t- 定期备份（crontab + tar）是生存线\n45\t- TPS 和 MSPT 是核心性能指标\n46\t- Chunky 预生成区块可显著减少运行时的性能抖动\n47\t\n48\t## 与知识库的关联\n49\t\n50\t- [[知识库/概念/MC服务器]] — MC 服务器概念定义与核心机制\n51\t- [[知识库/概念/服务器性能优化]] — MC 服务器性能调优方法\n52\t- [[知识库/专题/MC服务器搭建指南]] — 基于本文的综合专题研究\n53\t\n54\t## 缺口与待探索方向\n55\t\n56\t- 具体云厂商的最新优惠和实例价格（需定期更新）\n57\t- Docker 化的详细部署方案\n58\t- Java 23/25 等新版本在 MC 服务器上的实际表现\n59\t- Mod 整合包打包与分发最佳实践\n60\t"
+          },
+          {
+            "id": "call_05_aYix7Ju64W9O4eB7ysRJ5085",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\来源\\LLM Wiki 方法论摘要.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: LLM Wiki 方法论摘要\n3\t标签: [来源, 方法论, LLM]\n4\t创建日期: 2026-07-17\n5\t来源数量: 1\n6\t相关概念: [LLM Wiki, 知识管理, RAG]\n7\t相关实体: []\n8\t类型: 来源摘要\n9\t状态: 活跃\n10\t---\n11\t\n12\t# LLM Wiki 方法论 — 来源摘要\n13\t\n14\t> **原文**: `llm-wiki.md`（已归档至 [[原始资料/来源/LLM Wiki 方法论文档]]）\n15\t\n16\t## 核心思想\n17\t\n18\t传统的 RAG（检索增强生成）方式是在每次查询时重新发现和拼凑知识，没有积累效应。LLM Wiki 的核心理念是：由 LLM **增量式构建并维护一个持久的维基知识库**——一个结构化的、相互链接的 Markdown 文件集合，位于用户和原始资料之间。\n19\t\n20\t**关键区别：维基是一个持久的、不断叠加的产物。** 交叉引用已经存在，矛盾已经被标记，综合已经反映了所有阅读过的内容。每次添加新来源和提出新问题，知识库都变得更丰富。\n21\t\n22\t## 三层架构\n23\t\n24\t| 层级 | 内容 | 谁拥有 |\n25\t|------|------|--------|\n26\t| **原始资料** | 文章、论文、数据文件（不可变） | 用户策展 |\n27\t| **知识库（Wiki）** | LLM 生成的 Markdown 页面 | LLM 全权维护 |\n28\t| **模式文档（Schema）** | 定义结构、约定和流程的配置文件 | 用户与 LLM 共同演化 |\n29\t\n30\t## 三种核心操作\n31\t\n32\t1. **摄取（Ingest）** — 放入新来源 → LLM 读取、讨论、写摘要、更新索引和相关页面、记录日志。一个来源可能触及 10-15 个页面。\n33\t2. **查询（Query）** — 提问 → LLM 搜索页面、综合回答、将有价值的回答归档为新页面。\n34\t3. **维护（Lint）** — 健康检查 → 查找矛盾、过时声明、孤立页面、缺失页面和缺失引用。\n35\t\n36\t## 两个关键文件\n37\t\n38\t- **`索引.md`** — 内容导向的目录（按类别组织，每次摄取后更新）\n39\t- **`日志.md`** — 时间顺序的记录（每条以统一前缀开头，便于搜索）\n40\t\n41\t## 为什么有效\n42\t\n43\t维护知识库最繁琐的不是阅读或思考，而是**簿记工作**——更新交叉引用、保持摘要最新、标记矛盾。人类因为维护负担增长快于价值而放弃维基。LLM 不会厌倦、不会忘记更新引用、可以一次处理 15 个文件。维护成本接近于零。\n44\t\n45\t人类的工作是：策展来源、指导分析、提出好问题、思考意义。LLM 的工作是：其他一切。\n46\t\n47\t## 重要启示\n48\t\n49\t- 本知识库本身就是这个方法论的实例化\n50\t- 目录结构、页面格式、工具——都取决于具体领域和个人偏好\n51\t- 一切可选且模块化——选择有用的，忽略不需要的\n52\t"
+          },
+          {
+            "id": "call_06_KJdH4Ab1lUsVjWwe7bcZ1451",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\原始资料\\MC服务器搭建的整体思路.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# MC服务器搭建的整体思路\n2\t\n3\t> 随着 AI Agent 的飞速发展，搭建一个 MC 服务器的门槛越来越低，甚至搭建者不需要任何相关知识便能完成搭建。本文的目的是避免\"有枪不会使\"的情况出现——让你在享受便利的同时，真正理解每一步在做什么。\n4\t\n5\t---\n6\t\n7\t## 一、选择硬件\n8\t\n9\t### 物理机自建\n10\t\n11\t自建物理机是自由度最高的方案。MC 服务器最看重的两个硬件指标：\n12\t\n13\t| 硬件 | 重要性 | 说明 |\n14\t|------|--------|------|\n15\t| **CPU 单核算力** | ⭐⭐⭐⭐⭐ | MC 的主逻辑（实体运算、红石、区块加载）基本是单线程的，单核性能直接决定服务器能承载多少玩家和复杂程度 |\n16\t| **内存 (RAM)** | ⭐⭐⭐⭐⭐ | 每个玩家、每个加载的区块、每个实体都占用内存。内存不足会导致卡顿甚至崩溃 |\n17\t| **硬盘读写速度** | ⭐⭐⭐ | 影响世界加载速度、区块保存速度。NVMe SSD >> SATA SSD >> HDD |\n18\t| **网络带宽 & 延迟** | ⭐⭐⭐⭐ | 影响玩家的连接稳定性与延迟体验 |\n19\t\n20\t**CPU 选购建议（截至 2026 年）：**\n21\t\n22\t- **入门级（~5 人小型服）**：Intel i3 或 AMD Ryzen 3，单核性能够用，成本低\n23\t- **进阶级（10-30 人）**：Intel i5 / AMD Ryzen 5，单核性能优秀，性价比最高\n24\t- **高端（30-100+ 人）**：Intel i7 / i9 或 AMD Ryzen 7 / 9，追求极致单核性能\n25\t- **特殊需求（多开或大服）**：AMD Ryzen 9 或 Intel Xeon，核心数多可同时跑多个实例\n26\t\n27\t> 💡 **要点**：MC 不看核心数（8 核够用），单核频率和 IPC（每时钟周期指令数）才是王道。选 CPU 时优先看单核跑分（如 PassMark 单核分数）。\n28\t\n29\t**内存建议：**\n30\t\n31\t| 场景 | 建议内存 | 备注 |\n32\t|------|---------|------|\n33\t| 原版小服（1-5 人） | 4-6 GB | 含系统开销 |\n34\t| 原版中等服（10-30 人） | 8-12 GB | |\n35\t| 插件服（Paper/Bukkit） | 8-16 GB | 取决于插件数量 |\n36\t| 整合包/Mod 服 | 12-32 GB | 大型 Mod 包（如 ATM 系列）需更多 |\n37\t| 大型公开服 | 32 GB+ | 含预生成地形缓存 |\n38\t\n39\t### 云服务器\n40\t\n41\t各大云厂商均提供适合跑 MC 的云服务器实例：\n42\t\n43\t| 厂商 | 适合方案 | 特点 |\n44\t|------|---------|------|\n45\t| **阿里云** | 轻量应用服务器 / ECS | 国内延迟低，轻量服务器性价比高 |\n46\t| **腾讯云** | 轻量应用服务器 / CVM | 类似阿里云，新用户优惠多 |\n47\t| **华为云** | HECS / ECS | 稳定性好，学生优惠 |\n48\t| **AWS** | Lightsail / EC2 | 国际服首选，支持按需付费 |\n49\t| **Vultr / Linode** | 高频 CPU 实例 | 单核性能优化，适合 MC |\n50\t\n51\t**云服务器选购要点：**\n52\t- 选择 **高频 CPU 实例**（如阿里云的计算型、AWS 的 compute-optimized）\n53\t- **按量付费 vs 包年包月**：测试期用按量，稳定后包年\n54\t- **带宽**：5-10 Mbps 足够 20-50 人，大型公开服需 100 Mbps 以上\n55\t- **防御 DDoS**：国内厂商一般自带基础防御，海外可用 TCPShield\n56\t\n57\t---\n58\t\n59\t## 二、环境准备\n60\t\n61\t### Java 版本\n62\t\n63\t运行标准的 Minecraft Java Edition 服务器需要对应版本的 Java：\n64\t\n65\t| Minecraft 版本 | 所需 Java | 获取方式 |\n66\t|---------------|----------|---------|\n67\t| 1.0 - 1.16.5 | Java 8 (JDK 8) | `sudo apt install openjdk-8-jdk` |\n68\t| 1.17 - 1.20.4 | Java 17 (JDK 17) | `sudo apt install openjdk-17-jdk` |\n69\t| 1.20.5 - 1.21.x | Java 21 (JDK 21) | `sudo apt install openjdk-21-jre-headless` |\n70\t\n71\t> ⚠️ **注意**：Mojang 频繁更新 Java 依赖要求，搭建前务必查阅 [Minecraft 官方文档](https://minecraft.wiki) 确认最新版本的 Java 要求。建议安装主版本后也准备好最新 LTS 版本的 JDK。\n72\t\n73\t**安装 Java 的通用方式（Linux）：**\n74\t\n75\t```bash\n76\t# 查看已安装的 Java 版本\n77\tjava -version\n78\t\n79\t# 安装 OpenJDK（Ubuntu/Debian）\n80\tsudo apt update\n81\tsudo apt install openjdk-21-jre-headless   # 仅运行时\n82\tsudo apt install openjdk-21-jdk            # 包含开发工具\n83\t\n84\t# 切换默认 Java 版本（多版本共存时）\n85\tsudo update-alternatives --config java\n86\t```\n87\t\n88\t### 操作系统选择\n89\t\n90\t| 系统 | 适用场景 | 优缺点 |\n91\t|------|---------|--------|\n92\t| **Ubuntu Server 22.04/24.04 LTS** | 推荐首选 | 社区活跃，文档多，稳定性好 |\n93\t| **Debian 12** | 稳定至上 | 比 Ubuntu 更保守，资源占用更少 |\n94\t| **CentOS Stream / Rocky Linux** | 企业级 | RHEL 系，习惯 yum 的可用 |\n95\t| **Windows Server** | 不会 Linux 的选择 | 操作简单但资源占用大，不稳定 |\n96\t| **Docker** | 隔离环境 | 快速部署，方便迁移和备份 |\n97\t\n98\t### 基础安全配置\n99\t\n100\t```bash\n101\t# 创建非 root 用户\n102\tadduser mcserver\n103\tusermod -aG sudo mcserver\n104\tsu - mcserver\n105\t\n106\t# 防火墙（以 ufw 为例）\n107\tsudo ufw allow 22/tcp        # SSH\n108\tsudo ufw allow 25565/tcp     # Minecraft\n109\tsudo ufw allow 25565/udp     # Minecraft（一些情况需要）\n110\tsudo ufw enable\n111\t\n112\t# 使用 screen/tmux 保持后台运行\n113\tsudo apt install screen tmux\n114\t```\n115\t\n116\t### 选择合适的服务端核心\n117\t\n118\t不同核心的侧重点完全不同：\n119\t\n120\t| 核心 | 类型 | 特点 |\n121\t|------|------|------|\n122\t| **Vanilla** | 原版 | Mojang 官方 jar，纯净无修改 |\n123\t| **Paper** | 优化版 | 最流行的性能优化核心，插件兼容性好 |\n124\t| **Purpur** | 高自定义 | 基于 Paper，可配置更多原版机制 |\n125\t| **Fabric** | 轻量 Mod 加载器 | 启动快，Mod 更新及时，兼容性好 |\n126\t| **Quilt** | Fabric 分支 | 社区分叉，更开放的治理 |\n127\t| **Forge** | 重量级 Mod 加载器 | 兼容最多 Mod，但启动慢、优化差 |\n128\t| **NeoForge** | Forge 分支 | Forge 分裂后的新主线 |\n129\t| **Spigot** | 插件兼容 | Paper 的前身，已被 Paper 取代 |\n130\t| **Velocity** | 代理端 | 高性能代理，取代 BungeeCord |\n131\t| **BungeeCord** | 代理端 | 老牌代理，用于跨服 |\n132\t\n133\t**如何选择：**\n134\t- **纯生存小服（≤10 人）**：Paper 或 Vanilla\n135\t- **插件生存服**：Paper 或 Purpur\n136\t- **轻量 Mod 服**：Fabric\n137\t- **大型 Mod 包（ATM、GTNH 等）**：Forge 或 NeoForge\n138\t- **跨服网络**：Velocity + 若干个后端实例\n139\t\n140\t---\n141\t\n142\t## 三、配置启动文件\n143\t\n144\t### 基础启动命令\n145\t\n146\t最简单的 MC 服务器启动命令：\n147\t\n148\t```bash\n149\tjava -jar server.jar nogui\n150\t```\n151\t\n152\t`nogui` 参数表示不启动图形界面（纯命令行模式），在服务器上推荐使用。\n153\t\n154\t### 进阶启动配置（推荐）\n155\t\n156\t实际生产环境中，JVM 的启动参数对性能影响巨大。以下是一份经过实战检验的配置模板：\n157\t\n158\t```bash\n159\t#!/bin/bash\n160\t# start.sh — MC 服务器启动脚本\n161\t\n162\t# ===== 配置区域 =====\n163\tJAR_NAME=\"paper-1.21.1-130.jar\"    # 你的服务端 jar 文件名\n164\tMEM_MIN=\"2G\"                        # 初始堆大小（Xms）\n165\tMEM_MAX=\"8G\"                        # 最大堆大小（Xmx）\n166\tBACKUP_DIR=\"./backups\"              # 备份目录\n167\t# ===================\n168\t\n169\t# Aikar's Flags — 业界公认的 MC 服务器 JVM 优化参数\n170\t# 详见: https://docs.papermc.io/paper/aikars-flags\n171\tjava -Xms$MEM_MIN -Xmx$MEM_MAX \\\n172\t     -XX:+UseG1GC \\\n173\t     -XX:+ParallelRefProcEnabled \\\n174\t     -XX:MaxGCPauseMillis=200 \\\n175\t     -XX:+UnlockExperimentalVMOptions \\\n176\t     -XX:+DisableExplicitGC \\\n177\t     -XX:+AlwaysPreTouch \\\n178\t     -XX:G1HeapWastePercent=5 \\\n179\t     -XX:G1MixedGCCountTarget=4 \\\n180\t     -XX:G1MixedGCLiveThresholdPercent=90 \\\n181\t     -XX:G1RSetUpdatingPauseTimePercent=5 \\\n182\t     -XX:SurvivorRatio=32 \\\n183\t     -XX:+PerfDisableSharedMem \\\n184\t     -XX:MaxTenuringThreshold=1 \\\n185\t     -Dusing.aikars.flags=https://mcflags.emc.gs \\\n186\t     -Daikars.new.flags=true \\\n187\t     -jar $JAR_NAME nogui\n188\t\n189\t# 如果服务器关闭，自动重启\n190\t# 将上面整个 java 命令包在 while 循环中即可实现\n191\t```\n192\t\n193\t### 各参数详解\n194\t\n195\t| 参数 | 作用 |\n196\t|------|------|\n197\t| `-Xms` / `-Xmx` | 初始堆 / 最大堆大小。建议设为相同值避免 GC 时堆扩容的开销 |\n198\t| `-XX:+UseG1GC` | 使用 G1 垃圾回收器，MC 最适合的 GC 策略 |\n199\t| `-XX:+ParallelRefProcEnabled` | 并行处理引用，加速 GC |\n200\t| `-XX:MaxGCPauseMillis=200` | 目标 GC 暂停时间 200ms |\n201\t| `-XX:+DisableExplicitGC` | 禁用 System.gc() 调用，防止意外触发 Full GC |\n202\t| `-XX:+AlwaysPreTouch` | 启动时预分配内存，避免运行时向 OS 申请内存造成延迟 |\n203\t| `-XX:+PerfDisableSharedMem` | 禁用 perf 共享内存，防止 Java 进程意外挂起 |\n204\t| `-XX:MaxTenuringThreshold=1` | 对象晋升阈值，减少长期存活对象的维护开销 |\n205\t\n206\t### 自动重启脚本\n207\t\n208\t```bash\n209\t#!/bin/bash\n210\t# restart-loop.sh — 崩溃自动重启\n211\t\n212\twhile true; do\n213\t    echo \"[$(date)] 启动 MC 服务器...\"\n214\t    java -Xms4G -Xmx8G -XX:+UseG1GC -jar server.jar nogui\n215\t    echo \"[$(date)] 服务器停止，10 秒后重启...\"\n216\t    sleep 10\n217\tdone\n218\t```\n219\t\n220\t### Systemd 服务（生产环境推荐）\n221\t\n222\t```ini\n223\t[Unit]\n224\tDescription=Minecraft Server\n225\tAfter=network.target\n226\t\n227\t[Service]\n228\tUser=mcserver\n229\tWorkingDirectory=/home/mcserver/server\n230\tExecStart=/usr/bin/java -Xms4G -Xmx8G -XX:+UseG1GC -jar /home/mcserver/server/server.jar nogui\n231\tRestart=on-failure\n232\tRestartSec=10\n233\t\n234\t[Install]\n235\tWantedBy=multi-user.target\n236\t```\n237\t\n238\t保存为 `/etc/systemd/system/minecraft.service`，然后：\n239\t\n240\t```bash\n241\tsudo systemctl daemon-reload\n242\tsudo systemctl enable minecraft\n243\tsudo systemctl start minecraft\n244\tsudo systemctl status minecraft   # 查看状态\n245\t```\n246\t\n247\t---\n248\t\n249\t## 四、服务器配置（server.properties）\n250\t\n251\tMC 服务器的核心配置文件 `server.properties` 包含最重要的运行时设置：\n252\t\n253\t```properties\n254\t# 基础设置\n255\tserver-port=25565               # 服务器端口\n256\tserver-ip=                      # 绑定 IP（留空 = 所有网卡）\n257\tmotd=A Minecraft Server         # 服务器列表显示的信息\n258\tmax-players=20                  # 最大玩家数\n259\tdifficulty=easy                 # 难度: peaceful/easy/normal/hard\n260\tgamemode=survival               # 默认游戏模式: survival/creative/adventure/spectator\n261\t\n262\t# 世界设置\n263\tlevel-type=default              # 世界类型: default/flat/largebiomes/amplified\n264\tseed=                           # 世界种子（留空 = 随机）\n265\tspawn-protection=16             # 出生点保护半径\n266\tview-distance=10                # 视距（区块数），越小性能越好\n267\tsimulation-distance=8           # 模拟距离，影响实体加载\n268\t\n269\t# PvP 与玩家交互\n270\tpvp=true                        # 是否开启 PvP\n271\twhite-list=false                # 是否开启白名单\n272\tenforce-whitelist=false         # 启动时是否强制执行白名单\n273\t\n274\t# 网络与性能\n275\tnetwork-compression-threshold=256  # 网络压缩阈值\n276\tmax-tick-time=-1                # 最大 tick 时间（-1 = 禁用看门狗）\n277\tenable-query=false              # 是否启用 GameSpy 查询协议\n278\t```\n279\t\n280\t> 🔧 **常用修改**：`view-distance` 和 `simulation-distance` 是性能影响最大的两个参数，每降低 1 个值都能显著降低 CPU 负载。\n281\t\n282\t---\n283\t\n284\t## 五、网络与安全\n285\t\n286\t### 端口转发（家庭自建服）\n287\t\n288\t1. 在路由器管理后台找到 **端口转发 / 虚拟服务器** 功能\n289\t2. 添加规则：\n290\t   - 外部端口：`25565`\n291\t   - 内部 IP：你的服务器内网 IP（如 `192.168.1.100`）\n292\t   - 内部端口：`25565`\n293\t   - 协议：`TCP/UDP`\n294\t3. 使用 [WhatIsMyIP](https://whatismyip.com) 获取公网 IP\n295\t4. 玩家通过 `你的公网IP:25565` 连接\n296\t\n297\t> ⚠️ **注意**：家庭宽带通常没有固定公网 IP，需要 DDNS（动态 DNS）或使用 FRP/Ngrok 等内网穿透工具。国内 ISP 可能封禁 25565 端口，可改为其他端口（如 25566）。\n298\t\n299\t### SRV 记录（自定义域名）\n300\t\n301\t在 DNS 解析中添加 SRV 记录，让玩家通过域名连接：\n302\t\n303\t```\n304\t类型: SRV\n305\t名称: _minecraft._tcp.yourdomain.com\n306\t目标: yourdomain.com\n307\t端口: 25565\n308\t优先级: 0\n309\t权重: 5\n310\t```\n311\t\n312\t### 反向代理与安全\n313\t\n314\t```bash\n315\t# 使用 TCPShield 保护服务器（免费层可用）\n316\t# 或使用 Cloudflare Proxy（仅限域名，需关闭橙色云朵或使用 Tunnel）\n317\t\n318\t# 对于大服，推荐前置代理架构：\n319\t# 玩家 -> TCPShield/Cloudflare -> Velocity/BungeeCord -> 后端服务器\n320\t```\n321\t\n322\t---\n323\t\n324\t## 六、维护与管理\n325\t\n326\t### 备份策略\n327\t\n328\t```bash\n329\t#!/bin/bash\n330\t# backup.sh — 自动备份脚本\n331\t\n332\t# 在服务端执行 /save-off 和 /save-all 后运行\n333\t# 或直接使用 screen 发送命令\n334\t\n335\tscreen -S minecraft -X stuff \"say 服务器正在备份，可能短暂卡顿...\\n\"\n336\tscreen -S minecraft -X stuff \"save-all\\n\"\n337\tsleep 5\n338\tscreen -S minecraft -X stuff \"save-off\\n\"\n339\t\n340\t# 备份世界数据\n341\ttar -czf \"./backups/world_$(date +%Y%m%d_%H%M%S).tar.gz\" world world_nether world_the_end\n342\t\n343\tscreen -S minecraft -X stuff \"save-on\\n\"\n344\tscreen -S minecraft -X stuff \"say 备份完成！\\n\"\n345\t\n346\t# 删除 7 天前的旧备份\n347\tfind ./backups -name \"*.tar.gz\" -mtime +7 -delete\n348\t```\n349\t\n350\t### 推荐定时备份（crontab）\n351\t\n352\t```cron\n353\t# 每天凌晨 4 点备份\n354\t0 4 * * * /home/mcserver/backup.sh\n355\t```\n356\t\n357\t### 性能监控\n358\t\n359\t```bash\n360\t# 基础监控\n361\thtop                              # 查看 CPU 和内存\n362\tdf -h                             # 查看磁盘空间\n363\tdu -sh ./world                    # 查看世界文件大小\n364\t\n365\t# MC 特定监控（在控制台输入）\n366\t/tps                              # 查看服务器 TPS\n367\t/mspt                             # 查看每 tick 耗时\n368\t/paper timings                    # Paper 性能分析\n369\t```\n370\t\n371\t### 更新流程\n372\t\n373\t1. **备份世界数据**（永远第一步）\n374\t2. 下载新版服务端 jar\n375\t3. 测试新版本的核心配置（新版 Paper 通常可以直接替换）\n376\t4. 依次更新插件/Mod（注意兼容性）\n377\t5. 启动并测试\n378\t\n379\t---\n380\t\n381\t## 七、插件与 Mod 推荐\n382\t\n383\t### 必备插件（Paper/Spigot）\n384\t\n385\t| 插件 | 用途 |\n386\t|------|------|\n387\t| **LuckPerms** | 权限管理，标准选择 |\n388\t| **EssentialsX** | 基础命令套装（home、tpa、warp 等） |\n389\t| **CoreProtect** | 方块日志与回滚，反熊必备 |\n390\t| **Vault** | 经济系统接口 |\n391\t| **PlaceholderAPI** | 变量占位符，很多插件的前置 |\n392\t| **BlueMap / Dynmap** | 网页地图，方便玩家浏览世界 |\n393\t\n394\t### 性能优化\n395\t\n396\t| 插件/工具 | 用途 |\n397\t|-----------|------|\n398\t| **Chunky** | 区块预生成，避免新玩家进入时卡顿 |\n399\t| **ClearLag** | 定时清理掉落物 |\n400\t| **Spark** | 性能分析，定位卡顿原因 |\n401\t\n402\t### 优化 Mod（Fabric）\n403\t\n404\t| Mod | 用途 |\n405\t|-----|------|\n406\t| **Lithium** | CPU 优化，无副作用 |\n407\t| **Phosphorus** | 光照引擎优化 |\n408\t| **Starlight** | 光照计算重写，大幅提升性能 |\n409\t| **FerriteCore** | 内存优化 |\n410\t| **Krypton** | 网络优化 |\n411\t\n412\t---\n413\t\n414\t## 八、常见问题排查\n415\t\n416\t| 问题 | 可能原因 | 解决方法 |\n417\t|------|---------|---------|\n418\t| 玩家连接超时 | 端口未转发 / 防火墙未放行 | 检查路由器设置和 iptables |\n419\t| 服务器卡顿 / TPS 低 | CPU 瓶颈 / 内存不足 / GC 频繁 | 减少视距，增加内存，检查 GC 日志 |\n420\t| 存档损坏 | 非正常关闭 / 磁盘错误 | 定期备份，使用 `/save-all` |\n421\t| Mod 冲突 | Mod 版本不兼容 | 检查 Crash Report，逐个排除 |\n422\t| 内存溢出 (OOM) | 堆太小 / 内存泄漏 | 增加 -Xmx 值，检查插件内存占用 |\n423\t\n424\t---\n425\t\n426\t## 九、进阶方向\n427\t\n428\t- **跨服网络**：使用 Velocity 搭建多世界/多游戏模式的跨服网络\n429\t- **Docker 化部署**：将服务器放在 Docker 容器中，方便迁移\n430\t- **Git 化配置管理**：用 Git 管理所有配置文件，记录变更历史\n431\t- **CI/CD 自动部署**：更新时自动拉取、测试、部署\n432\t- **分布式服务器**：配合 Redis 实现多台物理机共同承载一个服务器\n433\t\n434\t---\n435\t\n436\t> 本文持续更新中。Minecraft 的版本迭代很快，建议定期查阅 [PaperMC Docs](https://docs.papermc.io)、[Minecraft Wiki](https://minecraft.wiki) 和对应的服务端官方文档获取最新信息。\n437\t"
+          },
+          {
+            "id": "call_07_VodR8091fZKlRdriZk0k3059",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\原始资料\\资产\\服务端的相关经验.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t我一开始是在网易我的世界里买的租赁服玩的，不能导出存档，也不能加任何模组和插件，就算这样月租也不便宜。后来我开始研究开一个原版服务器，使用的基岩版官方服务端，上传到1c2g的云服务器上跑，很卡，但是这是我迈向自自主构建服务器的第一步。后来我开始使用paper和mohist，后又经朋友的推荐使用purpur，再后来我使用fabric+优化模组的方案，获得了比较好的性能收益，这套方案我至今也非常推荐。再后来我开始接触folia以及它的fork。一会着重介绍他们。以上都是原版服的构建，在这之后我开始开mod服，但很多都是整合包自带的服务端，并不需要由服主本人操作太多，这里就不再赘述了。推荐几个端purpur lumino leaves mint。"
+          },
+          {
+            "id": "call_08_AkNT6IvhlzzwVCq3jBbB1064",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\原始资料\\来源\\LLM Wiki 方法论文档.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: LLM Wiki 方法论文档 — 原始版本\n3\t标签: [来源, 方法论, LLM, 原始]\n4\t创建日期: 2026-07-17\n5\t类型: 原始来源\n6\t状态: 不可变\n7\t---\n8\t\n9\t# LLM Wiki — 原始方法论文档\n10\t\n11\t> ⚠️ 注意：此文件为 LLM Wiki 方法论的原始文档，不可修改。\n12\t> 摘要和解读请参见 [[知识库/来源/LLM Wiki 方法论摘要]]。\n13\t> 架构定义请参见 [[模式文档.md]]。\n14\t\n15\t---\n16\t\n17\t> *A pattern for building personal knowledge bases using LLMs.*\n18\t>\n19\t> *This is an idea file, it is designed to be copy pasted to your own LLM Agent (e.g. OpenAI Codex, Claude Code, OpenCode / Pi, or etc.). Its goal is to communicate the high level idea, but your agent will build out the specifics in collaboration with you.*\n20\t\n21\t---\n22\t\n23\t## 核心思想\n24\t\n25\t大多数人与 LLM 和文档的交互方式是 RAG：上传文件集合，LLM 在查询时检索相关片段并生成答案。这种方式可行，但 LLM 在每个问题上都在重新发现知识——没有积累。问一个需要综合五份文档的微妙问题，LLM 每次都得寻找并拼凑相关片段。什么也没有建立起来。NotebookLM、ChatGPT 文件上传和大多数 RAG 系统都是这样运作的。\n26\t\n27\t这里的思路不同。LLM 不是仅在查询时从原始文档检索，而是**增量式构建并维护一个持久的维基**——一个结构化的、相互链接的 Markdown 文件集合，位于你和原始资料之间。当你添加新来源时，LLM 不只是为后续检索做索引——它读取内容、提取关键信息、并将其整合到现有维基中——更新实体页面、修订主题摘要、标注新数据与旧主张的矛盾之处、加强或质疑正在演化的综合。知识被编译一次之后就**保持当前**，而不是在每个查询上重新推导。\n28\t\n29\t这是关键区别：**维基是一个持久的、不断叠加的产物。** 交叉引用已经存在，矛盾已经被标注，综合已经反映了你读过的一切。每个你添加的来源和提出的问题都让维基变得更加丰富。\n30\t\n31\t你从不（或很少）自己写维基——LLM 编写和维护所有内容。你负责策展、探索和提出正确的问题。LLM 做所有繁琐的工作——总结、交叉引用、归档和簿记——这些工作让知识库随着时间推移真正有用。实践中，我让 LLM 代理在一边打开，Obsidian 在另一边打开。LLM 根据我们的对话进行编辑，我实时浏览结果——跟随链接、检查图谱视图、阅读更新后的页面。Obsidian 是 IDE，LLM 是程序员，维基是代码库。\n32\t\n33\t这可以应用于许多不同场景：\n34\t- **个人**：追踪自己的目标、健康、心理、自我提升——归档日记、文章、播客笔记，随时间构建关于自己的结构化图景\n35\t- **研究**：在数周或数月内深入研究一个主题——阅读论文、文章、报告，增量式构建一个包含演化论点的全面维基\n36\t- **读书**：逐章归档，为角色、主题、情节线索及其关联建页面。读完后你得到一个丰富的伴读维基\n37\t- **商业/团队**：由 LLM 维护的内部维基，以 Slack 讨论、会议转录、项目文档、客户通话为输入\n38\t- **竞品分析、尽职调查、旅行规划、课程笔记、爱好深潜**——任何随时间积累知识并希望其有条理而非散落的场景\n39\t\n40\t## 架构\n41\t\n42\t**原始资料** — 你策展的原始文档集合。文章、论文、图片、数据文件。不可变——LLM 从中读取但从不修改。这是事实源。\n43\t\n44\t**维基** — 一个 LLM 生成的 Markdown 文件目录。摘要、实体页面、概念页面、比较、概览、综合。LLM 完全拥有这一层。它创建页面、在新来源到达时更新、维护交叉引用、保持一切一致。你阅读它；LLM 编写它。\n45\t\n46\t**模式文档** — 一个文档（如 Claude Code 的 CLAUDE.md 或 Codex 的 AGENTS.md）告诉 LLM 维基的结构、约定和工作流程。这是关键的配置文件——它使 LLM 成为一个有纪律的维基维护者而非通用聊天机器人。你和 LLM 随时间共同演化它。\n47\t\n48\t## 操作\n49\t\n50\t**摄取（Ingest）**：放入新来源到原始集合，告诉 LLM 处理。示例流程：LLM 读取来源→与你讨论关键收获→在维基中写摘要页面→更新索引→更新相关实体和概念页面→追加日志条目。一个来源可能触及 10-15 个维基页面。建议一次处理一个，保持参与——你阅读摘要、检查更新、指导 LLM 重点方向。也可以批量处理。\n51\t\n52\t**查询（Query）**：向维基提问。LLM 搜索相关页面、阅读、综合带引用的回答。回答可以是 Markdown 页面、对比表格、幻灯片、图表等。**好的回答可以归档回维基成为新页面。** 这样你的探索像摄入的来源一样叠加在知识库中。\n53\t\n54\t**维护（Lint）**：定期让 LLM 做健康检查——查找页面间的矛盾、被新来源取代的过时主张、无入站链接的孤立页面、被提及但缺独立页面的重要概念、缺失的交叉引用、可通过网络搜索填充的数据缺口。\n55\t\n56\t## 索引与日志\n57\t\n58\t**索引.md** 是内容导向的目录。每页一条+链接+一句话摘要+元数据。按类别组织。每次摄取后更新。在中等规模（~100来源，~数百页面）下效果很好，避免了对嵌入检索基础设施的需求。\n59\t\n60\t**日志.md** 是时间顺序的记录。仅追加的操作记录——摄取、查询、维护。如果每条以统一前缀开头，日志就可用简单 Unix 工具解析。\n61\t\n62\t## 可选工具\n63\t\n64\t- **Obsidian Web Clipper** — 浏览器扩展，将网页转为 Markdown\n65\t- **qmd** — Markdown 文件的本地搜索引擎，支持混合 BM25/向量搜索和 LLM 重排序\n66\t- **Obsidian 图谱视图** — 查看维基形状的最佳方式\n67\t- **Marp** — 基于 Markdown 的幻灯片格式\n68\t- **Dataview** — 对页面 frontmatter 运行查询的 Obsidian 插件\n69\t- **Git** — 版本历史、分支和协作\n70\t\n71\t## 为什么有效\n72\t\n73\t维护知识库最繁琐的不是阅读或思考——是簿记。更新交叉引用、保持摘要最新、标注新数据与旧主张的矛盾、在数十个页面间保持一致性。人类放弃维基是因为维护负担增长快于价值。LLM 不会感到无聊、不会忘记更新引用、可以一次处理 15 个文件。维基保持维护因为维护成本接近于零。\n74\t\n75\t人类的工作是策展来源、指导分析、提出好问题、思考意义。LLM 的工作是其他一切。\n76\t\n77\t这个思路与 Vannevar Bush 的 Memex（1945）在精神上一脉相承——一个私人的、积极策展的知识存储，文档之间有联想性路径。Bush 的愿景更接近这个模式而非后来的网络：私人的、主动策展的、文档之间的联系本身与文档同样有价值。他没能解决的部分是谁来做维护。LLM 接手了。\n78\t\n79\t---\n80\t\n81\t> *本文档是抽象的方法论描述，不是具体实现。目录结构、模式约定、页面格式、工具——都取决于你的领域、偏好和选择的 LLM。一切可选且模块化。正确使用方式是与你选择的 LLM 代理分享本文，合作实例化适合你需求的版本。*\n82\t"
+          },
+          {
+            "id": "call_09_w6NFFidEBWy3KaMUu4Ie5409",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\方法论\\方法论.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t---\n2\t标题: 方法论\n3\t标签: [方法论, 元]\n4\t创建日期: 2026-07-17\n5\t类型: 概念\n6\t状态: 活跃\n7\t---\n8\t\n9\t# 方法论\n10\t\n11\t本目录原用于存放方法论资料。知识库现已根据 [[原始资料/来源/LLM Wiki 方法论文档]] 完成重构。\n12\t\n13\t## 知识库的方法论基础\n14\t\n15\t本知识库的核心方法论是 **LLM Wiki** — 一种由 LLM 增量式构建和维护持久知识库的模式。\n16\t\n17\t| 方法论文档 | 位置 |\n18\t|-----------|------|\n19\t| 架构定义 | [[模式文档.md]] |\n20\t| 方法论摘要 | [[知识库/来源/LLM Wiki 方法论摘要]] |\n21\t| 原文完整版 | [[原始资料/来源/LLM Wiki 方法论文档]] |\n22\t\n23\t## 相关概念\n24\t\n25\t- [[知识库/概念/README.md|概念页面索引]] — 知识库中的理论和方法概念\n26\t"
+          },
+          {
+            "id": "call_00_nAlYS2hRQpk26eKvdrE22831",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\实体\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 实体页面\n2\t\n3\t> 用于存放关于**人物、组织、项目、产品**等具体实体的页面。\n4\t\n5\t## 页面格式示例\n6\t\n7\t```markdown\n8\t---\n9\t标题: 实体名称\n10\t标签: [实体, 具体标签]\n11\t创建日期: 2026-07-17\n12\t来源数量: 0\n13\t相关实体: []\n14\t相关概念: []\n15\t类型: 实体\n16\t状态: 活跃\n17\t---\n18\t\n19\t# 实体名称\n20\t\n21\t## 概述\n22\t\n23\t## 关键信息\n24\t\n25\t## 关联\n26\t\n27\t## 来源\n28\t```\n29\t\n30\t## 当前实体\n31\t\n32\t*尚无实体页面。添加来源后，LLM 将在此创建和更新实体条目。*\n33\t"
+          },
+          {
+            "id": "call_01_y9rWQzulR520Y1dn8bdA0107",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\概念\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 概念页面\n2\t\n3\t> 用于存放关于**理论、方法、术语、框架**等抽象概念的页面。\n4\t\n5\t## 页面格式示例\n6\t\n7\t```markdown\n8\t---\n9\t标题: 概念名称\n10\t标签: [概念, 具体标签]\n11\t创建日期: 2026-07-17\n12\t来源数量: 0\n13\t相关实体: []\n14\t相关概念: []\n15\t类型: 概念\n16\t状态: 活跃\n17\t---\n18\t\n19\t# 概念名称\n20\t\n21\t## 定义\n22\t\n23\t## 核心要点\n24\t\n25\t## 与其他概念的关系\n26\t\n27\t## 来源\n28\t```\n29\t\n30\t## 当前概念\n31\t\n32\t*尚无概念页面。添加来源后，LLM 将在此创建和更新概念条目。*\n33\t"
+          },
+          {
+            "id": "call_02_P29TiowpwcysD1lJ2rgN2328",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\来源\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 来源摘要\n2\t\n3\t> 每篇摄入的原始文档的摘要页面。每个来源一个文件。\n4\t\n5\t## 当前来源\n6\t\n7\t| 页面 | 来源 | 日期 |\n8\t|------|------|------|\n9\t| [[知识库/来源/LLM Wiki 方法论摘要]] | LLM Wiki 原文 | 2026-07-17 |\n10\t"
+          },
+          {
+            "id": "call_03_aCli7ShoHIB0JIAvJIdu6066",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\专题\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 专题研究\n2\t\n3\t> 深度研究特定话题的专题页面。用于存放综合性的分析、论证和探索。\n4\t\n5\t## 何时创建专题\n6\t\n7\t- 对某个话题进行了多来源的深度阅读\n8\t- 回答查询时产生了有价值的综合分析\n9\t- 发现了跨领域的联系和洞见\n10\t\n11\t## 当前专题\n12\t\n13\t*尚无专题页面。随着知识积累，LLM 将在此创建专题研究。*\n14\t"
+          },
+          {
+            "id": "call_04_JoKd0U5L8ZnY2tid2lD65109",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\知识库\\比较\\README.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t# 对比分析\n2\t\n3\t> 多维度比较不同的实体、概念、方法或选项的页面。\n4\t\n5\t## 何时创建对比分析\n6\t\n7\t- 当用户提出比较性问题时\n8\t- 当多个来源对同一话题有不同视角时\n9\t- 当需要在选项之间做决策时\n10\t\n11\t## 当前对比\n12\t\n13\t*尚无对比页面。随着查询和探索，LLM 将在此创建对比分析。*\n14\t"
+          },
+          {
+            "id": "call_05_VV2AIBhXZVkbupIOMouN8527",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\llm-wiki.md"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t> 🏗️ **本知识库已根据 LLM Wiki 方法论完成初始化。**\n2\t>\n3\t> 原文已归档至 [[原始资料/来源/LLM Wiki 方法论文档]]（不可变原始版本）\n4\t> 中文摘要见 [[知识库/来源/LLM Wiki 方法论摘要]]\n5\t> 架构定义见 [[模式文档.md]]\n6\t> 知识库总索引见 [[知识库/索引.md]]\n7\t\n8\t---\n9\t\n10\t# LLM Wiki — 知识库入口\n11\t\n12\t欢迎！本知识库按照 **LLM Wiki** 方法论搭建。以下是核心速览：\n13\t\n14\t## 三层架构\n15\t\n16\t| 层级 | 位置 | 说明 |\n17\t|------|------|------|\n18\t| 📦 **原始资料** | `原始资料/` | 不可变的来源文档（LLM 只读不写） |\n19\t| 🧠 **知识库** | `知识库/` | LLM 生成和维护的 Wiki 页面 |\n20\t| 📋 **模式文档** | [[模式文档.md]] | 定义结构和流程的指令手册 |\n21\t\n22\t## 核心文件\n23\t\n24\t| 文件 | 用途 |\n25\t|------|------|\n26\t| [[模式文档.md]] | 📖 知识库操作手册 — 告诉 LLM 如何维护 |\n27\t| [[知识库/索引.md]] | 📑 内容目录 — 搜索和导航的起点 |\n28\t| [[知识库/日志.md]] | 📜 操作日志 — 时间线记录 |\n29\t| [[知识库/概览.md]] | 🌐 全局概览与综合 |\n30\t| [[原始资料/README.md]] | 📥 如何添加来源 |\n31\t\n32\t## 开始使用\n33\t\n34\t| 你想做什么？ | 方法 |\n35\t|-------------|------|\n36\t| 📥 **添加新知识** | 放文档到 `原始资料/来源/`，然后告诉我处理 |\n37\t| 🔍 **查询已有知识** | 直接提问，我会综合知识库回答 |\n38\t| 🧹 **健康检查** | 说\"检查知识库\"，我会审查并提出改进 |\n39\t| 🗂️ **定制结构** | 告诉我你的领域，我们可以调整目录和分类 |\n40\t\n41\t---\n42\t\n43\t*本文件是原 `llm-wiki.md` 的更新版本，作为知识库入口。*\n44\t"
+          },
+          {
+            "id": "call_06_HQtQSOWRqmyolrq3d7qH3010",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\未命名.base"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\tviews:\n2\t  - type: table\n3\t    name: 表格\n4\t"
+          },
+          {
+            "id": "call_07_7dTnWZIoZXgbDnrknxlB1452",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\.obsidian\\app.json"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t{}"
+          },
+          {
+            "id": "call_08_wEG0CAvmBqhqVaVpO0rm1124",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\.obsidian\\core-plugins.json"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t{\n2\t  \"file-explorer\": true,\n3\t  \"global-search\": true,\n4\t  \"switcher\": true,\n5\t  \"graph\": true,\n6\t  \"backlink\": true,\n7\t  \"canvas\": true,\n8\t  \"outgoing-link\": true,\n9\t  \"tag-pane\": true,\n10\t  \"footnotes\": false,\n11\t  \"properties\": true,\n12\t  \"page-preview\": true,\n13\t  \"daily-notes\": true,\n14\t  \"templates\": true,\n15\t  \"note-composer\": true,\n16\t  \"command-palette\": true,\n17\t  \"slash-command\": false,\n18\t  \"editor-status\": true,\n19\t  \"bookmarks\": true,\n20\t  \"markdown-importer\": false,\n21\t  \"zk-prefixer\": false,\n22\t  \"random-note\": false,\n23\t  \"outline\": true,\n24\t  \"word-count\": true,\n25\t  \"slides\": false,\n26\t  \"audio-recorder\": false,\n27\t  \"workspaces\": false,\n28\t  \"file-recovery\": true,\n29\t  \"publish\": false,\n30\t  \"sync\": true,\n31\t  \"bases\": true,\n32\t  \"webviewer\": false\n33\t}"
+          },
+          {
+            "id": "call_09_Or0NDWWQXFp90JvQTgUs9483",
+            "name": "Read",
+            "input": {
+              "file_path": "D:\\OSWarehouse\\MCserver\\.obsidian\\community-plugins.json"
+            },
+            "status": "completed",
+            "isExpanded": false,
+            "result": "1\t[\n2\t  \"realclaudian\",\n3\t  \"obsidian-git\"\n4\t]"
+          }
+        ],
+        "asyncStatus": "completed",
+        "agentId": "ab98b5e468b2166cd",
+        "startedAt": 1784282262818,
+        "outputToolId": "call_00_VUywjlYuXI5sjdLefvDt5150",
+        "result": "Let me now read the remaining README files in each knowledge base subdirectory, plus the top-level content files.",
+        "completedAt": 1784282320693
+      }
+    }
+  },
+  "currentNote": "原始资料/资产/服务端的相关经验.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 936,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 71552,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 72488,
+    "percentage": 36
+  }
+}
