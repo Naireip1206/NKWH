@@ -1,0 +1,148 @@
+{
+  "items": [
+    {
+      "type": "group",
+      "title": "📊 仪表盘",
+      "items": [
+        {
+          "type": "file",
+          "path": "知识库/概览.md",
+          "title": "← 从这里开始：全局概览"
+        },
+        {
+          "type": "file",
+          "path": "知识库/索引.md",
+          "title": "📑 内容目录（按类别导航）"
+        },
+        {
+          "type": "file",
+          "path": "知识库/日志.md",
+          "title": "🕐 操作日志（查看最新动态）"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "🧠 编译知识",
+      "items": [
+        {
+          "type": "group",
+          "title": "📖 综合指南",
+          "items": [
+            {
+              "type": "file",
+              "path": "知识库/专题/MC服务器搭建指南.md",
+              "title": "MC 服务器搭建指南"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "💡 核心概念",
+          "items": [
+            {
+              "type": "file",
+              "path": "知识库/概念/MC服务器.md",
+              "title": "MC 服务器 — 定义与核心机制"
+            },
+            {
+              "type": "file",
+              "path": "知识库/概念/服务器性能优化.md",
+              "title": "服务器性能优化 — JVM 与调优"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "🏷️ 关键实体",
+          "items": [
+            {
+              "type": "file",
+              "path": "知识库/实体/Purpur.md",
+              "title": "Purpur — 高自定义服务端核心"
+            },
+            {
+              "type": "file",
+              "path": "知识库/实体/Folia.md",
+              "title": "Folia — 多线程创新核心"
+            },
+            {
+              "type": "file",
+              "path": "知识库/实体/Fabric.md",
+              "title": "Fabric — 轻量 Mod 加载器"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "📥 来源层",
+      "items": [
+        {
+          "type": "group",
+          "title": "📋 来源摘要（编译后的入口）",
+          "items": [
+            {
+              "type": "file",
+              "path": "知识库/来源/LLM Wiki 方法论摘要.md",
+              "title": "LLM Wiki 方法论"
+            },
+            {
+              "type": "file",
+              "path": "知识库/来源/MC服务器搭建思路摘要.md",
+              "title": "MC 服务器搭建思路"
+            },
+            {
+              "type": "file",
+              "path": "知识库/来源/服务端的相关经验摘要.md",
+              "title": "服务端的相关经验"
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "title": "📦 原始档案（不可变来源）",
+          "items": [
+            {
+              "type": "file",
+              "path": "原始资料/来源/LLM Wiki 方法论文档.md",
+              "title": "LLM Wiki 方法论原文"
+            },
+            {
+              "type": "file",
+              "path": "原始资料/资产/MC服务器搭建的整体思路.md",
+              "title": "MC 服务器搭建思路（原始）"
+            },
+            {
+              "type": "file",
+              "path": "原始资料/资产/服务端的相关经验.md",
+              "title": "服务端的相关经验（原始）"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "⚙️ 架构配置",
+      "items": [
+        {
+          "type": "file",
+          "path": "模式文档.md",
+          "title": "模式文档（LLM 操作手册）"
+        },
+        {
+          "type": "file",
+          "path": "方法论/方法论.md",
+          "title": "方法论入口"
+        },
+        {
+          "type": "file",
+          "path": "llm-wiki.md",
+          "title": "LLM Wiki 入口"
+        }
+      ]
+    }
+  ]
+}
