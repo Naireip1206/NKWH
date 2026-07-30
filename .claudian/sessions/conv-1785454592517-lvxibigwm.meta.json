@@ -1,0 +1,25 @@
+{
+  "id": "conv-1785454592517-lvxibigwm",
+  "providerId": "claude",
+  "title": "Read and execute content",
+  "titleGenerationStatus": "success",
+  "createdAt": 1785454592517,
+  "updatedAt": 1785454669174,
+  "lastResponseAt": 1785454669174,
+  "sessionId": "9696f117-3f8d-48d4-8eee-9e6234da2d00",
+  "selectedModel": "haiku",
+  "providerState": {
+    "providerSessionId": "9696f117-3f8d-48d4-8eee-9e6234da2d00"
+  },
+  "currentNote": "原始资料/资产/未命名.md",
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 126,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 38528,
+    "contextWindow": 200000,
+    "contextWindowIsAuthoritative": true,
+    "contextTokens": 38654,
+    "percentage": 19
+  }
+}
